@@ -18,7 +18,7 @@ const GuessCountry = () => {
             try {
                 const response = await fetch('https://restcountries.com/v3.1/all');
                 const data = await response.json();
-                setCountries(data.map((country) => country.translations.fra.common));
+                setCountries(data.map((country) => country.name.common));
             } catch (e) {
                 console.log('Error fetching countries', e);
             }
@@ -28,7 +28,8 @@ const GuessCountry = () => {
 
     useEffect(() => {
         if (countries.length > 0) {
-            const randomCountry = countries[Math.floor(Math.random() * countries.length)].toUpperCase();
+            let randomCountry = countries[Math.floor(Math.random() * countries.length)].toUpperCase();
+            
             setCountry(randomCountry);
             const fetchCountryImg = async () => {
                 const response = await fetch(`https://restcountries.com/v3.1/name/${randomCountry.toLowerCase()}`);
@@ -40,38 +41,7 @@ const GuessCountry = () => {
     }, [countries]);
 
     const handleGuess = (letter) => {
-        switch(letter) {
-            case "Ä":
-                letter = "A";
-                break;
-            case "À":
-                letter = "A";
-                break;
-            case "Á":
-                letter = "A";
-                    break;
-            case "É":
-                letter = "E";
-                break;
-            case "È":
-                letter = "E";
-                break;
-            case "Ö":
-                letter = "O";
-                break;
-            case "Î":
-                letter = "I";
-                break;
-            case "Ô":
-                letter = "O";
-                break;
-            case "Û":
-                letter = "U";
-                break;
-            case "Å":
-                letter = "A";  
-                break;
-        }
+        
         if (guessedLetters.includes(letter) || gameOver || gameWon) return;
 
         setGuessedLetters([...guessedLetters, letter]);
