@@ -53,7 +53,7 @@ const GuessCountry = () => {
             case "É":
                 letter = "E";
                 break;
-                case "È":
+            case "È":
                 letter = "E";
                 break;
             case "Ö":
@@ -62,11 +62,16 @@ const GuessCountry = () => {
             case "Î":
                 letter = "I";
                 break;
+            case "Ô":
+                letter = "O";
+                break;
+            case "Û":
+                letter = "U";
+                break;
+            case "Å":
+                letter = "A";  
+                break;
         }
-        if(letter === "Å") letter = "A";
-        if(letter === "Ä") letter = "A";
-        if(letter === "Ö") letter = "O";
-        if(letter === "É") letter = "E";    
         if (guessedLetters.includes(letter) || gameOver || gameWon) return;
 
         setGuessedLetters([...guessedLetters, letter]);
