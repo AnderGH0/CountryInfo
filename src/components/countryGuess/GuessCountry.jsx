@@ -18,7 +18,7 @@ const GuessCountry = () => {
             try {
                 const response = await fetch('https://restcountries.com/v3.1/all');
                 const data = await response.json();
-                setCountries(data.map((country) => country.name.common));
+                setCountries(data.map((country) => country.translations.fra.common));
             } catch (e) {
                 console.log('Error fetching countries', e);
             }
