@@ -40,6 +40,7 @@ const GuessCountry = () => {
     }, [countries]);
 
     const handleGuess = (letter) => {
+        if(letter === "Å") letter = "A";
         if (guessedLetters.includes(letter) || gameOver || gameWon) return;
 
         setGuessedLetters([...guessedLetters, letter]);
