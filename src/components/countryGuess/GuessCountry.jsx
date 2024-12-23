@@ -81,14 +81,14 @@ const GuessCountry = () => {
                 <h1 className='game-over'>You Lost !</h1>
                 <h2 className='country-name'>The country was {country}</h2>
                 <img  src={countryImg} alt={country} />
-                <button className='button try-again' onClick={() => window.location.reload()}>Try Again</button>
+                <button className='button try-again' onClick={() => history.go(0)}>Try Again</button>
             </div>
             }   
             {gameWon && <div className='end-game'>
                 <h1 className='game-over'>You Won !</h1>
                 <h2 className='country-name'>The country was {country}</h2>
                 <img className='guess-img' src={countryImg} alt={country} />
-                <button className='button try-again' onClick={() => window.location.reload()}>Try Again</button>
+                <button className='button try-again' onClick={() => history.go(0)}>Try Again</button>
             </div>}
         </div>
         </>
